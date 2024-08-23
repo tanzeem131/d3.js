@@ -13,7 +13,8 @@ function App() {
       .attr("width", w)
       .attr("height", h)
       .style("background", "#d3d3d3")
-      .style("margin-top", "50");
+      .style("margin-top", "50")
+      .style("overflow", "visible");
     const xScale = d3
       .scaleLinear()
       .domain([0, data.length - 1])
@@ -25,6 +26,14 @@ function App() {
       .x((d, i) => xScale(i))
       .y(yScale)
       .curve(d3.curveCardinal);
+
+    const xAxis = d3
+      .axisBottom(xScale)
+      .ticks(data.length)
+      .tickFormat((i) => i + 1);
+    const yAxis = d3.axisLeft(yScale).ticks(5);
+    svg.append("g").call(xAxis).attr("transform", `translate(0,${h})`);
+    svg.append("g").call(yAxis);
 
     svg
       .selectAll(".line")
