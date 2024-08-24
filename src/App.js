@@ -1,53 +1,55 @@
-import { useEffect, useRef, useState } from "react";
-import * as d3 from "d3";
 import "./App.css";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import SideBar from "./components/SideBar";
+import NavBtn from "./components/NavBtn";
+import Error from "./components/Error";
+import Body from "./components/Body";
+import Btn1 from "./components/Btn1";
+import Btn2 from "./components/Btn2";
+import Btn3 from "./components/Btn3";
+import Btn4 from "./components/Btn4";
 
 function App() {
-  const [data] = useState([25, 5, 35, 15, 90, 20]);
-  const svgRef = useRef();
-  useEffect(() => {
-    const w = 400;
-    const h = 100;
-    const svg = d3
-      .select(svgRef.current)
-      .attr("width", w)
-      .attr("height", h)
-      .style("background", "#d3d3d3")
-      .style("margin-top", "50")
-      .style("overflow", "visible");
-    const xScale = d3
-      .scaleLinear()
-      .domain([0, data.length - 1])
-      .range([0, w]);
-    const yScale = d3.scaleLinear().domain([0, h]).range([h, 0]);
-
-    const generateScaledLine = d3
-      .line()
-      .x((d, i) => xScale(i))
-      .y(yScale)
-      .curve(d3.curveCardinal);
-
-    const xAxis = d3
-      .axisBottom(xScale)
-      .ticks(data.length)
-      .tickFormat((i) => i + 1);
-    const yAxis = d3.axisLeft(yScale).ticks(5);
-    svg.append("g").call(xAxis).attr("transform", `translate(0,${h})`);
-    svg.append("g").call(yAxis);
-
-    svg
-      .selectAll(".line")
-      .data([data])
-      .join("path")
-      .attr("d", (d) => generateScaledLine(d))
-      .attr("fill", "none")
-      .attr("stroke", "black");
-  }, [data]);
   return (
-    <div className="App">
-      <svg ref={svgRef}></svg>
+    <div>
+      <NavBtn />
+      <Outlet />
     </div>
   );
 }
+
+export const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/",
+        element: <SideBar />,
+      },
+      {
+        path: "/Btn1",
+        element: <Btn1 />,
+      },
+      {
+        path: "/Btn2",
+        element: <Btn2 />,
+      },
+      {
+        path: "/Btn3",
+        element: <Btn3 />,
+      },
+      {
+        path: "/Btn4",
+        element: <Btn4 />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
 
 export default App;
