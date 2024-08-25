@@ -4,10 +4,11 @@
 }
 
 svg {
-  background: #eee;
+  background: #d3d3d3;
   overflow: visible;
   display: block;
-  width: 100%;
+  width: 650px;
+  height: 500px;
 }
 
 #root {
@@ -16,5 +17,5 @@ svg {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding: 0 50px;
+  padding: 50px 50px;
 }

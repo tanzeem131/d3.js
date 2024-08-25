@@ -8,13 +8,17 @@ import Btn1 from "./components/Btn1";
 import Btn2 from "./components/Btn2";
 import Btn3 from "./components/Btn3";
 import Btn4 from "./components/Btn4";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 function App() {
   return (
-    <div>
-      <NavBtn />
-      <Outlet />
-    </div>
+    <Provider store={store}>
+      <div>
+        <NavBtn />
+        <Outlet />
+      </div>
+    </Provider>
   );
 }
 

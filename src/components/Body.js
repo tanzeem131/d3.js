@@ -1,10 +1,10 @@
 import React from "react";
-import BarChart from "./BarChart";
+import Btn1 from "./Btn1";
 
-const Body = ({ commentData }) => {
+const Body = () => {
   return (
     <div>
-      <BarChart data={commentData} />
+      <Btn1 />
     </div>
   );
 };

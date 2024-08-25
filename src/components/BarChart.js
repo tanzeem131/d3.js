@@ -38,12 +38,12 @@ const BarChart = ({ data = [] }) => {
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, maxValue])
+      .domain([0, 1.1 * maxValue])
       .range([dimensions.height, 0]);
 
     const colorScale = d3
       .scaleLinear()
-      .domain([0, 300000, 4000000])
+      .domain([0, 0.5 * maxValue, maxValue])
       .range(["green", "orange", "red"])
       .clamp(true);
 
@@ -86,8 +86,8 @@ const BarChart = ({ data = [] }) => {
       .attr("height", (value) => dimensions.height - yScale(value));
   }, [data, maxValue, dimensions]);
   return (
-    <div ref={wrapperRef} className="my-16 w-[200%] h-[500px]">
-      <svg ref={svgRef} className="w-[100%] h-[100%]">
+    <div ref={wrapperRef} className="w-fit h-fit">
+      <svg ref={svgRef}>
         <g className="x-axis" />
         <g className="y-axis" />
       </svg>
