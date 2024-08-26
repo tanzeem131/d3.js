@@ -10,13 +10,22 @@ import Btn3 from "./components/Btn3";
 import Btn4 from "./components/Btn4";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import HighLightBar from "./components/HighLightBar";
 
 function App() {
   return (
     <Provider store={store}>
-      <div>
-        <NavBtn />
-        <Outlet />
+      <div className="grid grid-cols-12 w-full items-center">
+        <div className="col-span-2 border-r-2 border-gray-800">
+          <SideBar />
+        </div>
+        <div className="col-span-6 flex flex-col justify-center items-center gap-20 bg-black h-screen">
+          <Outlet />
+          <NavBtn />
+        </div>
+        <div className="col-span-4 border-l-2 border-gray-800">
+          <HighLightBar />
+        </div>
       </div>
     </Provider>
   );
@@ -30,10 +39,6 @@ export const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
-      },
-      {
-        path: "/",
-        element: <SideBar />,
       },
       {
         path: "/Btn1",

@@ -1,10 +1,5 @@
-.App {
-  text-align: center;
-  margin-top: 50px;
-}
-
 svg {
-  background: #d3d3d3;
+  background: transparent;
   overflow: visible;
   display: block;
   width: 650px;
@@ -17,5 +12,4 @@ svg {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding: 50px 50px;
 }

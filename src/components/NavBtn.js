@@ -37,24 +37,24 @@ const NavBtn = () => {
   }, [dispatch]);
 
   return (
-    <div className="">
+    <div className="flex gap-4">
       <Link to={"/Btn1"}>
-        <button className="p-1 hover:bg-orange-400 border-2 border-orange-900 rounded-full">
+        <button className="p-2 hover:scale-105 text-white border-2 w-fit border-gray-800 rounded-full">
           Recent post vs comments
         </button>
       </Link>
       <Link to={"/Btn2"}>
-        <button className="p-1 hover:bg-orange-500 border-2 border-orange-900 rounded-full">
+        <button className="p-2 hover:scale-105 text-white border-2 w-fit border-gray-800 rounded-full">
           Recent post vs likes
         </button>
       </Link>
       <Link to={"/Btn3"}>
-        <button className="p-1 hover:bg-orange-400 border-2 border-orange-900 rounded-full">
+        <button className="p-2 hover:scale-105 text-white border-2 w-fit border-gray-800 rounded-full">
           Most Liked post
         </button>
       </Link>
       <Link to={"/Btn4"}>
-        <button className="p-1 hover:bg-orange-500 border-2 border-orange-900 rounded-full">
+        <button className="p-2 hover:scale-105 text-white border-2 w-fit border-gray-800 rounded-full">
           Most commented post
         </button>
       </Link>

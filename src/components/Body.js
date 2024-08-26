@@ -1,10 +1,10 @@
 import React from "react";
-import Btn1 from "./Btn1";
+import LineChart from "./LineChart";
 
 const Body = () => {
   return (
     <div>
-      <Btn1 />
+      <LineChart />
     </div>
   );
 };
